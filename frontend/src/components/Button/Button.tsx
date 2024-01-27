@@ -1,4 +1,4 @@
-import { Button, SxProps, Theme } from "@mui/material";
+import { Button, SxProps, Theme, ButtonProps } from "@mui/material";
 import React from "react";
 
 import { rubik } from "@/app/fonts";
@@ -7,6 +7,8 @@ interface IButtonComponent {
   children?: React.ReactNode;
   style?: SxProps<Theme>
 }
+
+type FazzButtonType = ButtonProps & IButtonComponent
 
 const defaultThemeButton = {
   color: "#6A4029",
@@ -27,12 +29,13 @@ const defaultThemeButton = {
   marginTop: "2rem",
 };
 
-export default function FazzButton(props: IButtonComponent) {
+export default function FazzButton(props: FazzButtonType) {
   return (
     <Button
       fullWidth
       variant="contained"
       sx={{ ...defaultThemeButton, ...props.style }}
+      {...props}
     >
       {props.children}
     </Button>
