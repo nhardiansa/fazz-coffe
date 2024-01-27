@@ -8,6 +8,17 @@ const theme = createTheme({
     fontFamily: [
       rubik.style.fontFamily
     ].join(',')
+  },
+  components: {
+    MuiContainer: {
+      defaultProps: {
+        sx: {
+          paddingInline: {
+            lg: '0'
+          }
+        }
+      }
+    }
   }
 });
 
