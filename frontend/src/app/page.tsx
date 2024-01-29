@@ -6,7 +6,9 @@ import {
   CheckCircle as CheckCircleIcon,
   Person as PersonIcon,
   LocationOn as LocationIcon,
-  Favorite as HeartIcon
+  Favorite as HeartIcon,
+  Star as StarIcon,
+  ArrowBack as ArrowBackIcon
 } from "@mui/icons-material";
 import { rubik } from '@/app/fonts'
 import Link from "next/link";
@@ -20,6 +22,16 @@ import TeamWorkDoodle from '@/assets/images/teamwork-doodle.png'
 import Milkshake1 from '@/assets/images/milkshake-1.jpg'
 import Milkshake2 from '@/assets/images/milkshake-2.jpg'
 import Milkshake3 from '@/assets/images/milkshake-3.jpg'
+import StoreMapImage from '@/assets/images/store-map.png'
+
+import netflix from '@/assets/images/netflix.png'
+import reddit from '@/assets/images/reddit.png'
+import amazon from '@/assets/images/amazon.png'
+import discord from '@/assets/images/discord.png'
+import spotify from '@/assets/images/spotify.png'
+import Footer from "@/components/Footer/Footer";
+
+const partners = [netflix, reddit, amazon, discord, spotify]
 
 const products = [
   {
@@ -75,6 +87,35 @@ export default function Home() {
 
       {/* Products */}
       <Products />
+
+      {/* Store Map */}
+      <StoreMap />
+
+      {/* Partner */}
+      <Partner />
+
+      {/* Customer Testimoni */}
+      <CustomerTestimonies />
+
+      {/* Promo Card */}
+      <Box sx={{ position: 'relative' }}>
+        <Box sx={{ position: 'absolute', left: '15%', top: '-8rem', display: { lg: 'flex', xs: 'none' }, alignItems: 'center', gap: '20rem', width: 'fit-content', paddingInline: '70px', paddingBlock: '2.5rem', borderRadius: '10px', bgcolor: '#fff' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <Typography component='p' sx={{ fontFamily: rubik.style.fontFamily, color: '#0B132A', fontSize: '33.18px', fontWeight: '500', width: '18rem' }}>
+              Check our promo today!
+            </Typography>
+            <Typography component='p' sx={{ color: '#4F5665', fontFamily: rubik.style.fontFamily }}>
+              Let&apos;s see the deals and pick yours!
+            </Typography>
+          </Box>
+          <FazzButton style={{ borderRadius: '10px', paddingInline: '82px' }}>
+            See Promo
+          </FazzButton>
+        </Box >
+      </Box>
+
+
+      <Footer />
     </Box >
   );
 }
@@ -317,6 +358,121 @@ const Products = () => {
           }
         </Box>
       </Container>
+    </Box>
+  )
+}
+
+const StoreMap = () => {
+  return (
+    <Box className="store-map" sx={{ background: '#FBFBFB', paddingBlock: '80px' }}>
+      <Container>
+        <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B332A', width: '100%', textAlign: 'center', maxWidth: '383px', marginInline: 'auto' }}>
+          Visit Our Store in the Spot on the Map Below
+        </Typography>
+
+        <Typography sx={{ color: '#4F5665', marginTop: '1.2rem', width: '100%', textAlign: 'center' }}>
+          See our store in every city on the spot and spen your good day there. See you soon!
+        </Typography>
+
+        <Box className="map-wrapper" sx={{ position: 'relative', maxWidth: '89%', marginInline: 'auto', height: '538px', marginTop: '10rem' }}>
+          <Image
+            alt="map-store-pict"
+            src={StoreMapImage}
+            fill
+            style={{ objectFit: 'contain' }}
+          />
+        </Box>
+      </Container>
+    </Box>
+  )
+}
+
+const Partner = () => {
+  return (
+    <Box className="partner" sx={{ background: '#FBFBFB', paddingBlock: '50px' }}>
+      <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B332A', width: '100%', textAlign: 'center', marginInline: 'auto' }}>
+        Our Partner
+      </Typography>
+
+      <Box className="partners" sx={{ marginTop: '48px', display: 'flex', gap: '60px', justifyContent: 'center' }}>
+        {
+          partners.map((item) => (
+            <Box key={item.src} className="partner" sx={{ position: 'relative', height: '113px', width: '200px', opacity: '20%' }}>
+              <Image
+                alt='product'
+                src={item}
+                fill
+                style={{ objectFit: 'contain' }}
+              />
+            </Box>
+          ))
+        }
+      </Box>
+    </Box>
+  )
+}
+
+const CustomerTestimonies = () => {
+  return (
+    <Box className="customer-testimoni" sx={{ background: '#FBFBFB', paddingBlock: '50px', paddingBottom: '157px' }}>
+      <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B332A', width: '447px', textAlign: 'center', marginInline: 'auto' }}>
+        Loved by Thousands of Happy Customer
+      </Typography>
+      <Typography sx={{ color: '#4F5665', marginTop: '1.27rem', width: '555px', marginInline: 'auto', textAlign: 'center' }}>
+        These are the stories of our customers who have visited us with great pleasure.
+      </Typography>
+
+      <Box className="testimonies" sx={{ width: '100%', overflow: 'hidden', marginTop: '60px', display: 'flex', columnGap: '50px', flexWrap: 'nowrap' }}>
+        {
+          [...Array(5)].map((_, i) => (
+            <Box key={i} className="testimoni" sx={{ border: '2px solid #DDDDDD', borderRadius: '10px', padding: '30px', minWidth: '400px', maxWidth: '400px', display: 'flex', flexDirection: 'column', rowGap: '20px' }}>
+              <Box className="user" sx={{ display: 'flex', columnGap: '20px' }}>
+                <Box className="user-pict-profile" sx={{ position: 'relative', width: '50px', height: '50px' }}>
+                  <Image alt="user-pict" src={Milkshake1} fill style={{ objectFit: 'cover', borderRadius: '100%' }} />
+                </Box>
+                <Box className="name-address" sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                  <Typography sx={{ fontWeight: 500, color: '#0B132A', fontSize: '18px' }}>
+                    Viezh Robert
+                  </Typography>
+                  <Typography sx={{ color: '#4F5665', fontSize: '14px' }}>
+                    Warsaw, Poland
+                  </Typography>
+                </Box>
+                <Box className="rating" sx={{ display: 'flex', columnGap: '10px' }}>
+                  <Typography sx={{ color: '#0B132A' }}>
+                    4.5
+                  </Typography>
+                  <StarIcon sx={{ color: '#FEA250' }} />
+                </Box>
+              </Box>
+              <Box className="Description">
+                <Typography sx={{ color: '#0B132A' }}>
+                  “Wow... I am very happy to spend my whole day here. the Wi-fi is good, and the coffee and meals tho. I like it here!! Very recommended!
+                </Typography>
+              </Box>
+            </Box>
+          ))
+        }
+      </Box>
+
+      <Box className="carousel-controll" sx={{ marginTop: '60px' }}>
+        <Container sx={{ paddingInline: { lg: '10rem' }, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Box className="dots" sx={{ display: 'flex', columnGap: '15px' }}>
+            <Box sx={{ width: '45px', height: '15px', background: '#6A4029', borderRadius: '15px' }} />
+            <Box sx={{ width: '15px', height: '15px', background: '#DDE0E4', borderRadius: '100%' }} />
+            <Box sx={{ width: '15px', height: '15px', background: '#DDE0E4', borderRadius: '100%' }} />
+            <Box sx={{ width: '15px', height: '15px', background: '#DDE0E4', borderRadius: '100%' }} />
+          </Box>
+          <Box className="navigations-btn" sx={{ display: 'flex', columnGap: '20px' }}>
+            <FazzButton sx={{ padding: '1.15rem', background: 'transparent', boxShadow: '0', border: '2px solid #6A4029', color: '#6A4029', ':hover': { color: 'white', background: '#6A4029' }, maxWidth: 'fit-content', borderRadius: '100%' }}>
+              <ArrowBackIcon />
+            </FazzButton>
+            <FazzButton sx={{ padding: '1.15rem', background: 'transparent', boxShadow: '0', border: '2px solid #6A4029', color: '#6A4029', ':hover': { color: 'white', background: '#6A4029' }, maxWidth: 'fit-content', borderRadius: '100%' }}>
+              <ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />
+            </FazzButton>
+          </Box>
+        </Container>
+      </Box>
     </Box>
   )
 }
