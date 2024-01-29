@@ -7,8 +7,6 @@ import {
   Person as PersonIcon,
   LocationOn as LocationIcon,
   Favorite as HeartIcon,
-  Star as StarIcon,
-  ArrowBack as ArrowBackIcon
 } from "@mui/icons-material";
 import { rubik } from '@/app/fonts'
 import Link from "next/link";
@@ -30,6 +28,7 @@ import amazon from '@/assets/images/amazon.png'
 import discord from '@/assets/images/discord.png'
 import spotify from '@/assets/images/spotify.png'
 import Footer from "@/components/Footer/Footer";
+import CustomerTestimonies from "@/components/CustomerTestimonies/CustomerTestimonies";
 
 const partners = [netflix, reddit, amazon, discord, spotify]
 
@@ -407,71 +406,6 @@ const Partner = () => {
             </Box>
           ))
         }
-      </Box>
-    </Box>
-  )
-}
-
-const CustomerTestimonies = () => {
-  return (
-    <Box className="customer-testimoni" sx={{ background: '#FBFBFB', paddingBlock: '50px', paddingBottom: '157px' }}>
-      <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B332A', width: '447px', textAlign: 'center', marginInline: 'auto' }}>
-        Loved by Thousands of Happy Customer
-      </Typography>
-      <Typography sx={{ color: '#4F5665', marginTop: '1.27rem', width: '555px', marginInline: 'auto', textAlign: 'center' }}>
-        These are the stories of our customers who have visited us with great pleasure.
-      </Typography>
-
-      <Box className="testimonies" sx={{ width: '100%', overflow: 'hidden', marginTop: '60px', display: 'flex', columnGap: '50px', flexWrap: 'nowrap' }}>
-        {
-          [...Array(5)].map((_, i) => (
-            <Box key={i} className="testimoni" sx={{ border: '2px solid #DDDDDD', borderRadius: '10px', padding: '30px', minWidth: '400px', maxWidth: '400px', display: 'flex', flexDirection: 'column', rowGap: '20px' }}>
-              <Box className="user" sx={{ display: 'flex', columnGap: '20px' }}>
-                <Box className="user-pict-profile" sx={{ position: 'relative', width: '50px', height: '50px' }}>
-                  <Image alt="user-pict" src={Milkshake1} fill style={{ objectFit: 'cover', borderRadius: '100%' }} />
-                </Box>
-                <Box className="name-address" sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                  <Typography sx={{ fontWeight: 500, color: '#0B132A', fontSize: '18px' }}>
-                    Viezh Robert
-                  </Typography>
-                  <Typography sx={{ color: '#4F5665', fontSize: '14px' }}>
-                    Warsaw, Poland
-                  </Typography>
-                </Box>
-                <Box className="rating" sx={{ display: 'flex', columnGap: '10px' }}>
-                  <Typography sx={{ color: '#0B132A' }}>
-                    4.5
-                  </Typography>
-                  <StarIcon sx={{ color: '#FEA250' }} />
-                </Box>
-              </Box>
-              <Box className="Description">
-                <Typography sx={{ color: '#0B132A' }}>
-                  “Wow... I am very happy to spend my whole day here. the Wi-fi is good, and the coffee and meals tho. I like it here!! Very recommended!
-                </Typography>
-              </Box>
-            </Box>
-          ))
-        }
-      </Box>
-
-      <Box className="carousel-controll" sx={{ marginTop: '60px' }}>
-        <Container sx={{ paddingInline: { lg: '10rem' }, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Box className="dots" sx={{ display: 'flex', columnGap: '15px' }}>
-            <Box sx={{ width: '45px', height: '15px', background: '#6A4029', borderRadius: '15px' }} />
-            <Box sx={{ width: '15px', height: '15px', background: '#DDE0E4', borderRadius: '100%' }} />
-            <Box sx={{ width: '15px', height: '15px', background: '#DDE0E4', borderRadius: '100%' }} />
-            <Box sx={{ width: '15px', height: '15px', background: '#DDE0E4', borderRadius: '100%' }} />
-          </Box>
-          <Box className="navigations-btn" sx={{ display: 'flex', columnGap: '20px' }}>
-            <FazzButton sx={{ padding: '1.15rem', background: 'transparent', boxShadow: '0', border: '2px solid #6A4029', color: '#6A4029', ':hover': { color: 'white', background: '#6A4029' }, maxWidth: 'fit-content', borderRadius: '100%' }}>
-              <ArrowBackIcon />
-            </FazzButton>
-            <FazzButton sx={{ padding: '1.15rem', background: 'transparent', boxShadow: '0', border: '2px solid #6A4029', color: '#6A4029', ':hover': { color: 'white', background: '#6A4029' }, maxWidth: 'fit-content', borderRadius: '100%' }}>
-              <ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />
-            </FazzButton>
-          </Box>
-        </Container>
       </Box>
     </Box>
   )
