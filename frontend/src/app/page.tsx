@@ -75,7 +75,7 @@ export default function Home() {
   return (
     <Box sx={{ fontFamily: rubik.style.fontFamily }}>
       {/* Navbar */}
-      <Navbar />
+      {/* <Navbar /> */}
 
 
       {/* Hero */}
@@ -201,37 +201,37 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <Box position='relative' sx={{ paddingTop: '98px' }}>
-      <Box sx={{ position: 'relative', width: '100%', height: '85vh', backgroundColor: 'black' }} >
-        <Image src={HeroBanner} alt="Hero Banner" fill style={{ objectFit: 'cover', filter: 'brightness(60%)' }} />
+      <Box sx={{ position: 'relative', width: '100%', height: { xs: '89vh', lg: '85vh' }, backgroundColor: 'black', filter: { sm: 'brightness(60%)', xs: 'brightness(45%)' } }} >
+        <Image src={HeroBanner} alt="Hero Banner" fill style={{ objectFit: 'cover' }} />
       </Box>
 
-      <Box position={'absolute'} sx={{ top: '27%', left: '10%', color: 'white', width: '100%', maxWidth: '1200px' }}>
-        <Typography component='p' sx={{ fontWeight: 700, fontSize: 46, maxWidth: 570, lineHeight: '70px', marginBottom: '19px' }}>
+      <Box position={'absolute'} sx={{ top: '27%', left: { xs: '5%', sm: '10%' }, color: 'white', width: '100%', maxWidth: { xs: '90%', lg: '1200px' } }}>
+        <Typography component='p' sx={{ fontWeight: 700, fontSize: { xs: 38, lg: 46 }, maxWidth: { sm: 570, xs: '100%' }, lineHeight: { lg: '70px' }, marginBottom: '19px', }}>
           Start Your Day with Coffee and Good Meals
         </Typography>
         <Typography component='p' sx={{ fontWeight: 700, maxWidth: 450, lineHeight: '30px' }}>
           We provide high quality beans, good taste, and healthy meals made by love just for you. Start your day with us for a bigger smile!
         </Typography>
-        <FazzButton style={{ paddingBlock: '1rem', borderRadius: '10px', maxWidth: '250px', fontWeight: 700 }}>
+        <FazzButton style={{ paddingBlock: '1rem', borderRadius: '10px', maxWidth: '250px', fontWeight: 700, marginInline: 'auto' }}>
           Get Started
         </FazzButton>
       </Box>
-    </Box>
+    </Box >
   )
 }
 
 const Service = () => {
   return (
     <Box sx={{ background: '#FFF', paddingBottom: '82px', paddingTop: '193px', position: 'relative' }}>
-      <Container sx={{ display: 'flex', gap: '139px', alignItems: 'center' }}>
-        <Box position='relative' sx={{ height: 457, width: 573 }}>
-          <Image src={TeamWorkDoodle} alt="TeamWork Doodle" style={{ objectFit: 'cover' }} fill />
+      <Container sx={{ display: 'flex', flexDirection: { lg: 'row', xs: 'column-reverse' }, columnGap: '139px', rowGap: '2rem', alignItems: 'center' }}>
+        <Box position='relative' sx={{ height: { xs: 300, sm: 457 }, width: { xs: '100%', lg: 573 } }}>
+          <Image src={TeamWorkDoodle} alt="TeamWork Doodle" style={{ objectFit: 'contain' }} fill />
         </Box>
         <Box>
-          <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B132A', maxWidth: '432px' }}>
+          <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B132A', maxWidth: '432px', textAlign: { xs: 'center', lg: 'start' } }}>
             We Provide Good Coffee and Healthy Meals
           </Typography>
-          <Typography sx={{ color: '#4F5665', marginTop: '1.12rem', maxWidth: '428px' }}>
+          <Typography sx={{ color: '#4F5665', marginTop: '1.12rem', maxWidth: '428px', textAlign: { xs: 'center', lg: 'start' } }}>
             You can explore the menu that we provide with fun and have their own taste and make your day better.
           </Typography>
 
@@ -255,37 +255,37 @@ const Service = () => {
         </Box>
       </Container>
 
-      <Box className='count-testimoni' sx={{ display: 'flex', justifyContent: 'space-between', padding: '67px 3rem', maxWidth: '1200px', background: '#ffff', boxShadow: '0px 7px 13px 0px #e7e7e7', borderRadius: '10px', position: 'absolute', top: '-55px', left: '16%', zIndex: '20' }}>
+      <Box className='count-testimoni' sx={{ display: 'flex', justifyContent: 'space-between', padding: { xs: '2rem 0rem', sm: '67px 3rem' }, maxWidth: { xs: '98%', lg: '1200px' }, background: '#ffff', boxShadow: '0px 7px 13px 0px #e7e7e7', borderRadius: '10px', position: 'absolute', top: { xs: '-5rem', sm: '-55px' }, left: { xs: '4%', lg: '16%' }, zIndex: '20' }}>
         {/* Staff */}
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: '300px' }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: { lg: '300px', xs: '125px', sm: '200px' } }}>
           <Box sx={{ color: '#6A4029', background: '#FFBA33', maxWidth: 'fit-content', padding: '0.88rem 1rem', borderRadius: '100%' }}>
             <PersonIcon />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-            <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A' }}>90+</Typography>
-            <Typography sx={{ fontSize: '1.12rem', color: '#4F5665' }}>Staff</Typography>
+            <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A', textAlign: { xs: 'center', sm: 'start' } }}>90+</Typography>
+            <Typography sx={{ fontSize: '1.12rem', color: '#4F5665', textAlign: { xs: 'center', sm: 'start' } }}>Staff</Typography>
           </Box>
         </Box>
 
         {/* Stores */}
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: '300px', borderInline: '2px solid #EEEFF2' }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: { lg: '300px', xs: '125px', sm: '200px' }, borderInline: '2px solid #EEEFF2' }}>
           <Box sx={{ color: '#6A4029', background: '#FFBA33', maxWidth: 'fit-content', padding: '0.88rem 1rem', borderRadius: '100%' }}>
             <LocationIcon />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-            <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A' }}>30+</Typography>
-            <Typography sx={{ fontSize: '1.12rem', color: '#4F5665' }}>Stores</Typography>
+            <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A', textAlign: { xs: 'center', sm: 'start' } }}>30+</Typography>
+            <Typography sx={{ fontSize: '1.12rem', color: '#4F5665', textAlign: { xs: 'center', sm: 'start' } }}>Stores</Typography>
           </Box>
         </Box>
 
         {/* Customer */}
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: '300px' }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: { lg: '300px', xs: '125px', sm: '200px' } }}>
           <Box sx={{ color: '#6A4029', background: '#FFBA33', maxWidth: 'fit-content', padding: '1rem 1rem 0.8rem 1rem', borderRadius: '100%' }}>
             <HeartIcon />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-            <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A' }}>900+</Typography>
-            <Typography sx={{ fontSize: '1.12rem', color: '#4F5665' }}>Customers</Typography>
+            <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A', textAlign: { xs: 'center', sm: 'start' } }}>900+</Typography>
+            <Typography sx={{ fontSize: '1.12rem', color: '#4F5665', textAlign: { xs: 'center', sm: 'start' } }}>Customers</Typography>
           </Box>
         </Box>
       </Box>
