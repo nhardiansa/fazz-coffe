@@ -4,6 +4,9 @@ import {
   Search as SearchIcon,
   QuestionAnswer as QuestionAnswerIcon,
   CheckCircle as CheckCircleIcon,
+  Person as PersonIcon,
+  LocationOn as LocationIcon,
+  Favorite as HeartIcon
 } from "@mui/icons-material";
 import { rubik } from '@/app/fonts'
 import Link from "next/link";
@@ -14,7 +17,48 @@ import BrandIcon from '@/app/icon.png'
 import PeoplePlaceholder from '@/assets/images/people-placeholder.png'
 import HeroBanner from '@/assets/images/hero-banner.jpg'
 import TeamWorkDoodle from '@/assets/images/teamwork-doodle.png'
+import Milkshake1 from '@/assets/images/milkshake-1.jpg'
+import Milkshake2 from '@/assets/images/milkshake-2.jpg'
+import Milkshake3 from '@/assets/images/milkshake-3.jpg'
 
+const products = [
+  {
+    img: Milkshake1,
+    name: 'Hazelnut Latte',
+    materials: [
+      'Hazelnut Syrup',
+      'Wanilla Whipped Cream',
+      'Ice / Hot',
+      'Sliced Banana on Top'
+    ],
+    price: 'IDR 25.000'
+  },
+  {
+    img: Milkshake2,
+    name: 'Pinky Promise',
+    materials: [
+      '1 Shot of Coffee',
+      'Vanilla Whipped Cream',
+      'Chocolate Biscuits',
+      'Strawberry Syrup',
+      'Sliced strawberry on Top'
+    ],
+    price: 'IDR 30.000'
+  },
+  {
+    img: Milkshake3,
+    name: 'Chicken Wings',
+    materials: [
+      'Wings',
+      'Drum Sticks',
+      'Mayonaise and Lemon',
+      'Hot Fried',
+      'Secret Recipe',
+      'Buy 1 Get 1 only for Dine in'
+    ],
+    price: 'IDR 40.000'
+  },
+]
 
 export default function Home() {
   return (
@@ -27,39 +71,10 @@ export default function Home() {
       <Hero />
 
       {/* Services */}
-      <Box sx={{ background: '#FFF', paddingBottom: '82px', paddingTop: '193px' }}>
-        <Container sx={{ display: 'flex', gap: '139px', alignItems: 'center' }}>
-          <Box position='relative' sx={{ height: 457, width: 573 }}>
-            <Image src={TeamWorkDoodle} alt="TeamWork Doodle" style={{ objectFit: 'cover' }} fill />
-          </Box>
-          <Box>
-            <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B132A', maxWidth: '432px' }}>
-              We Provide Good Coffee and Healthy Meals
-            </Typography>
-            <Typography sx={{ color: '#4F5665', marginTop: '1.12rem', maxWidth: '428px' }}>
-              You can explore the menu that we provide with fun and have their own taste and make your day better.
-            </Typography>
+      <Service />
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '0.94rem', marginTop: '20px' }}>
-              {
-                [
-                  "High quality beans",
-                  "Healthy meals, you can request the ingredients",
-                  "Chat with our staff to get better experience for ordering",
-                  "Free member card with a minimum purchase of IDR 200.000."
-                ].map((text) => (
-                  <Box key={text} sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <CheckCircleIcon sx={{ width: '24px', height: '24px', color: '#2FAB73' }} />
-                    <Typography component='span' sx={{ color: '#4F5665', fontSize: '14px' }}>
-                      {text}
-                    </Typography>
-                  </Box>
-                ))
-              }
-            </Box>
-          </Box>
-        </Container>
-      </Box>
+      {/* Products */}
+      <Products />
     </Box >
   );
 }
@@ -161,6 +176,147 @@ const Hero = () => {
           Get Started
         </FazzButton>
       </Box>
+    </Box>
+  )
+}
+
+const Service = () => {
+  return (
+    <Box sx={{ background: '#FFF', paddingBottom: '82px', paddingTop: '193px', position: 'relative' }}>
+      <Container sx={{ display: 'flex', gap: '139px', alignItems: 'center' }}>
+        <Box position='relative' sx={{ height: 457, width: 573 }}>
+          <Image src={TeamWorkDoodle} alt="TeamWork Doodle" style={{ objectFit: 'cover' }} fill />
+        </Box>
+        <Box>
+          <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B132A', maxWidth: '432px' }}>
+            We Provide Good Coffee and Healthy Meals
+          </Typography>
+          <Typography sx={{ color: '#4F5665', marginTop: '1.12rem', maxWidth: '428px' }}>
+            You can explore the menu that we provide with fun and have their own taste and make your day better.
+          </Typography>
+
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '0.94rem', marginTop: '20px' }}>
+            {
+              [
+                "High quality beans",
+                "Healthy meals, you can request the ingredients",
+                "Chat with our staff to get better experience for ordering",
+                "Free member card with a minimum purchase of IDR 200.000."
+              ].map((text) => (
+                <Box key={text} sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <CheckCircleIcon sx={{ width: '24px', height: '24px', color: '#2FAB73' }} />
+                  <Typography component='span' sx={{ color: '#4F5665', fontSize: '14px' }}>
+                    {text}
+                  </Typography>
+                </Box>
+              ))
+            }
+          </Box>
+        </Box>
+      </Container>
+
+      <Box className='count-testimoni' sx={{ display: 'flex', justifyContent: 'space-between', padding: '67px 3rem', maxWidth: '1200px', background: '#ffff', boxShadow: '0px 7px 13px 0px #e7e7e7', borderRadius: '10px', position: 'absolute', top: '-55px', left: '16%', zIndex: '20' }}>
+        {/* Staff */}
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: '300px' }}>
+          <Box sx={{ color: '#6A4029', background: '#FFBA33', maxWidth: 'fit-content', padding: '0.88rem 1rem', borderRadius: '100%' }}>
+            <PersonIcon />
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+            <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A' }}>90+</Typography>
+            <Typography sx={{ fontSize: '1.12rem', color: '#4F5665' }}>Staff</Typography>
+          </Box>
+        </Box>
+
+        {/* Stores */}
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: '300px', borderInline: '2px solid #EEEFF2' }}>
+          <Box sx={{ color: '#6A4029', background: '#FFBA33', maxWidth: 'fit-content', padding: '0.88rem 1rem', borderRadius: '100%' }}>
+            <LocationIcon />
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+            <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A' }}>30+</Typography>
+            <Typography sx={{ fontSize: '1.12rem', color: '#4F5665' }}>Stores</Typography>
+          </Box>
+        </Box>
+
+        {/* Customer */}
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: '300px' }}>
+          <Box sx={{ color: '#6A4029', background: '#FFBA33', maxWidth: 'fit-content', padding: '1rem 1rem 0.8rem 1rem', borderRadius: '100%' }}>
+            <HeartIcon />
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+            <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A' }}>900+</Typography>
+            <Typography sx={{ fontSize: '1.12rem', color: '#4F5665' }}>Customers</Typography>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
+const Products = () => {
+  return (
+    <Box sx={{ background: '#FBFBFB', paddingBlock: '5rem' }}>
+      <Container>
+        {/* Heading */}
+        <Box>
+          <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B332A', width: '100%', textAlign: 'center' }}>
+            Here is People&apos;s Favorite
+          </Typography>
+
+          <Typography sx={{ color: '#4F5665', marginTop: '1.2rem', width: '100%', textAlign: 'center' }}>
+            Let&apos;s choose and have a bit taste of poeple&apos;s favorite. It might be yours too!
+          </Typography>
+        </Box>
+
+        {/* Products */}
+        <Box className="product-container" sx={{ display: 'flex', gap: '50px', justifyContent: 'center', marginTop: `${183 + 65}px` }}>
+
+          {
+            products.map((item) => (
+              <Box key={item.name} className="product" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: '50px', width: '330px', border: '2px solid #DDDDDD', borderRadius: '10px', }}>
+
+                <Box className="image-wrapper" sx={{ position: 'relative', width: '129px', height: '129px', marginBottom: '20px', marginTop: '-65px' }}>
+                  <Image
+                    alt="milkshake-pict"
+                    src={item.img}
+                    fill
+                    style={{ objectFit: 'cover', borderRadius: '100%' }}
+                  />
+                </Box>
+
+                <Box className="product-name">
+                  <Typography component='h3' sx={{ fontSize: "18px", fontWeight: 500, textAlign: 'center', color: '#0B132A' }}>
+                    {item.name}
+                  </Typography>
+                </Box>
+
+                <Box className="product-materials" sx={{ marginTop: '1.8rem', display: 'flex', flexDirection: 'column', gap: '10px', flexGrow: 1 }}>
+                  {
+                    item.materials.map((material, index) => (
+
+                      <Box key={index} sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <CheckCircleIcon sx={{ width: '24px', height: '24px', color: '#2FAB73' }} />
+                        <Typography component='span' sx={{ color: '#4F5665', fontSize: '14px' }}>
+                          {material}
+                        </Typography>
+                      </Box>
+                    ))
+                  }
+                </Box>
+
+                <Box className="product-price-buy-act" sx={{ marginTop: '50px' }}>
+                  <Typography sx={{ fontWeight: 500, fontSize: 25, color: '#0B332A', width: '100%', textAlign: 'center' }}>
+                    {item.price}
+                  </Typography>
+                  <FazzButton style={{ border: '2px solid #FFBA33', padding: '13px 47px', maxWidth: 'fit-content', boxShadow: '0', marginTop: '20px', backgroundColor: '#ffff' }}>
+                    Order Now
+                  </FazzButton>
+                </Box>
+              </Box>
+            ))
+          }
+        </Box>
+      </Container>
     </Box>
   )
 }
