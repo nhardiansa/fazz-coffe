@@ -54,7 +54,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <Typography component='p' sx={{ fontFamily: rubik.style.fontFamily, color: '#AFB5C0', marginTop: '2rem' }}>
-          ©{new Date().getFullYear()} Fazz Coffe
+          ©{new Date().getFullYear()} Fazz Coffee
         </Typography>
       </Box>
 

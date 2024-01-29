@@ -72,7 +72,7 @@ const Navbar = () => {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
           <Box position='relative'>
             <Image
-              alt="Fazz Coffe Icon"
+              alt="Fazz Coffee Icon"
               src={BrandIcon}
               width={30}
               height={33}
@@ -80,7 +80,7 @@ const Navbar = () => {
           </Box>
 
           <Typography component='p' sx={{ fontFamily: rubik.style.fontFamily, fontWeight: '700', fontSize: '20px', color: '#0B132A' }}>
-            Fazz Coffe
+            Fazz Coffee
           </Typography>
         </Box>
 
