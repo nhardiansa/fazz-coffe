@@ -309,7 +309,7 @@ const Products = () => {
         </Box>
 
         {/* Products */}
-        <Box className="product-container" sx={{ display: 'flex', gap: '50px', justifyContent: 'center', marginTop: `${183 + 65}px` }}>
+        <Box className="product-container" sx={{ display: 'flex', flexDirection: { md: 'row', xs: 'column' }, columnGap: '50px', rowGap: '8rem', justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' }, marginTop: { xs: '8rem', md: `${183 + 65}px` } }}>
 
           {
             products.map((item) => (
@@ -373,7 +373,7 @@ const StoreMap = () => {
           See our store in every city on the spot and spen your good day there. See you soon!
         </Typography>
 
-        <Box className="map-wrapper" sx={{ position: 'relative', maxWidth: '89%', marginInline: 'auto', height: '538px', marginTop: '10rem' }}>
+        <Box className="map-wrapper" sx={{ position: 'relative', maxWidth: '89%', marginInline: 'auto', height: { md: '538px', xs: '250px' }, marginTop: { md: '10rem', xs: '3rem' } }}>
           <Image
             alt="map-store-pict"
             src={StoreMapImage}
@@ -393,10 +393,10 @@ const Partner = () => {
         Our Partner
       </Typography>
 
-      <Box className="partners" sx={{ marginTop: '48px', display: 'flex', gap: '60px', justifyContent: 'center' }}>
+      <Box className="partners" sx={{ marginTop: '48px', display: 'flex', gap: { xs: '1rem', md: '60px' }, justifyContent: 'center', flexWrap: 'wrap' }}>
         {
           partners.map((item) => (
-            <Box key={item.src} className="partner" sx={{ position: 'relative', height: '113px', width: '200px', opacity: '20%' }}>
+            <Box key={item.src} className="partner" sx={{ position: 'relative', height: { md: '113px', xs: '70px' }, width: { md: '200px', xs: '100px' }, opacity: '20%' }}>
               <Image
                 alt='product'
                 src={item}

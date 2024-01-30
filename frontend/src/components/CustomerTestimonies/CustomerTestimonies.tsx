@@ -60,20 +60,28 @@ const CustomerTestimonies = () => {
 
   const prev = () => {
     setCurrentSlide(curr => curr === 0 ? (reviews.length - 1) : curr - 1)
+    console.log(reviews.length - 1, currentSlide)
+  }
+
+  const goToSpecificSlide = (slide: number) => {
+    console.log(slide)
+    if (slide !== currentSlide) {
+      setCurrentSlide(slide)
+    }
   }
 
   return (
     <Box className="customer-testimoni" sx={{ background: '#FBFBFB', paddingBlock: '50px', paddingBottom: '157px' }}>
-      <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B332A', width: '447px', textAlign: 'center', marginInline: 'auto' }}>
+      <Typography component='h2' sx={{ fontWeight: 500, fontSize: 32, color: '#0B332A', width: { md: '447px', xs: '90%' }, textAlign: 'center', marginInline: 'auto' }}>
         Loved by Thousands of Happy Customer
       </Typography>
-      <Typography sx={{ color: '#4F5665', marginTop: '1.27rem', width: '555px', marginInline: 'auto', textAlign: 'center' }}>
+      <Typography sx={{ color: '#4F5665', marginTop: '1.27rem', width: { md: '555px', xs: '90%' }, marginInline: 'auto', textAlign: 'center' }}>
         These are the stories of our customers who have visited us with great pleasure.
       </Typography>
 
       <Box className="testimonies" sx={{ width: '100%', overflow: 'hidden', marginTop: '60px', paddingInline: '2rem' }}>
 
-        <Box className="testimonies-wrapper" sx={{ display: 'flex', columnGap: '50px', transitionProperty: 'transform', transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)', transitionDuration: '150ms', msTransitionDuration: '500ms', transform: `translateX(-${currentSlide * (450)}px)`, translate: '' }}>
+        <Box className="testimonies-wrapper" sx={{ display: 'flex', columnGap: { lg: '50px', xs: '1rem', md: '2rem' }, transitionProperty: 'transform', transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)', transitionDuration: '150ms', msTransitionDuration: '500ms', transform: { lg: `translateX(-${currentSlide * (260)}px)`, xs: `translateX(-${currentSlide * (315)}px)`, sm: `translateX(-${currentSlide * (300)}px)` }, translate: '' }}>
           {
             reviews.map((review, i) => (
               <Testimoni
@@ -91,11 +99,19 @@ const CustomerTestimonies = () => {
 
       <Box className="carousel-controll" sx={{ marginTop: '60px' }}>
         <Container sx={{ paddingInline: { lg: '10rem' }, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Box className="dots" sx={{ display: 'flex', columnGap: '15px' }}>
-            <Box sx={{ width: '45px', height: '15px', background: '#6A4029', borderRadius: '15px' }} />
-            <Box sx={{ width: '15px', height: '15px', background: '#DDE0E4', borderRadius: '100%' }} />
-            <Box sx={{ width: '15px', height: '15px', background: '#DDE0E4', borderRadius: '100%' }} />
-            <Box sx={{ width: '15px', height: '15px', background: '#DDE0E4', borderRadius: '100%' }} />
+          <Box className="dots" sx={{ display: 'flex', gap: '15px', flexWrap: 'wrap', maxWidth: { xs: '50%' } }}>
+            {
+              reviews.map((_, i) => (
+                <Box key={i}>
+                  {
+                    (i !== (reviews.length)) && (
+                      <Box sx={{ width: `${i === currentSlide ? '45px' : '15px'}`, height: '15px', background: `${i === currentSlide ? '#6A4029' : '#DDE0E4'}`, borderRadius: `${i === currentSlide ? '20px' : '100%'}`, cursor: 'pointer', transitionDuration: '150ms' }} onClick={() => goToSpecificSlide(i)} />
+                    )
+                  }
+                </Box>
+              ))
+            }
+            {/* <Box sx={{ width: '45px', height: '15px', background: '#6A4029', borderRadius: '15px' }} /> */}
           </Box>
           <Box className="navigations-btn" sx={{ display: 'flex', columnGap: '20px' }}>
             <FazzButton onClick={prev} sx={{ padding: '1.15rem', background: 'transparent', boxShadow: '0', border: '2px solid #6A4029', color: '#6A4029', ':hover': { color: 'white', background: '#6A4029' }, maxWidth: 'fit-content', borderRadius: '100%' }}>
@@ -120,7 +136,7 @@ interface ITestimoni {
 
 const Testimoni = (props: ITestimoni) => {
   return (
-    <Box className="testimoni" sx={{ border: '2px solid #DDDDDD', borderRadius: '10px', padding: '30px', minWidth: '400px', maxWidth: '400px', display: 'flex', flexDirection: 'column', rowGap: '20px' }}>
+    <Box className="testimoni" sx={{ border: '2px solid #DDDDDD', borderRadius: '10px', padding: '30px', minWidth: { xs: '100%', sm: '50%', md: '40%', lg: '400px' }, maxWidth: { md: '400px' }, display: 'flex', flexDirection: 'column', rowGap: '20px' }}>
       <Box className="user" sx={{ display: 'flex', columnGap: '20px' }}>
         <Box className="user-pict-profile" sx={{ position: 'relative', width: '50px', height: '50px' }}>
           <Image alt="user-pict" src={Milkshake1} fill style={{ objectFit: 'cover', borderRadius: '100%' }} />
