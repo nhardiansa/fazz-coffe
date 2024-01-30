@@ -255,41 +255,41 @@ const Service = () => {
         </Box>
       </Container>
 
-      <Box className='count-testimoni' sx={{ display: 'flex', justifyContent: 'space-between', padding: { xs: '2rem 0rem', sm: '67px 3rem' }, maxWidth: { xs: '98%', lg: '1200px' }, background: '#ffff', boxShadow: '0px 7px 13px 0px #e7e7e7', borderRadius: '10px', position: 'absolute', top: { xs: '-5rem', sm: '-55px' }, left: { xs: '4%', lg: '16%' }, zIndex: '20' }}>
+      <Box className='count-testimoni' sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: 'start', rowGap: '1rem', padding: { xs: '1rem 3rem', sm: '67px 3rem' }, width: { xs: '92%', sm: 'fit-content' }, maxWidth: { xs: '100%', lg: '1200px' }, background: '#ffff', boxShadow: '0px 7px 13px 0px #e7e7e7', borderRadius: '10px', position: 'absolute', top: { xs: '-5rem', sm: '-55px' }, left: { xs: '4%', md: '16%' }, zIndex: '20' }}>
         {/* Staff */}
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: { lg: '300px', xs: '125px', sm: '200px' } }}>
+        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: { sm: 'center' }, gap: '2rem', minWidth: { lg: '300px', xs: '100%', sm: '200px' } }}>
           <Box sx={{ color: '#6A4029', background: '#FFBA33', maxWidth: 'fit-content', padding: '0.88rem 1rem', borderRadius: '100%' }}>
             <PersonIcon />
           </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px', flexGrow: { xs: 1, sm: 0 } }}>
             <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A', textAlign: { xs: 'center', sm: 'start' } }}>90+</Typography>
             <Typography sx={{ fontSize: '1.12rem', color: '#4F5665', textAlign: { xs: 'center', sm: 'start' } }}>Staff</Typography>
           </Box>
         </Box>
 
         {/* Stores */}
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: { lg: '300px', xs: '125px', sm: '200px' }, borderInline: '2px solid #EEEFF2' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: { sm: 'center' }, gap: '2rem', minWidth: { lg: '300px', xs: '100%', sm: '200px' }, borderInline: { xs: '0', sm: '2px solid #EEEFF2' } }}>
           <Box sx={{ color: '#6A4029', background: '#FFBA33', maxWidth: 'fit-content', padding: '0.88rem 1rem', borderRadius: '100%' }}>
             <LocationIcon />
           </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px', flexGrow: { xs: 1, sm: 0 } }}>
             <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A', textAlign: { xs: 'center', sm: 'start' } }}>30+</Typography>
             <Typography sx={{ fontSize: '1.12rem', color: '#4F5665', textAlign: { xs: 'center', sm: 'start' } }}>Stores</Typography>
           </Box>
         </Box>
 
         {/* Customer */}
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', justifyContent: 'center', gap: '2rem', minWidth: { lg: '300px', xs: '125px', sm: '200px' } }}>
+        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: { sm: 'center' }, gap: '2rem', minWidth: { lg: '300px', xs: '100%', sm: '200px' } }}>
           <Box sx={{ color: '#6A4029', background: '#FFBA33', maxWidth: 'fit-content', padding: '1rem 1rem 0.8rem 1rem', borderRadius: '100%' }}>
             <HeartIcon />
           </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px', flexGrow: { xs: 1, sm: 0 } }}>
             <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#0B132A', textAlign: { xs: 'center', sm: 'start' } }}>900+</Typography>
             <Typography sx={{ fontSize: '1.12rem', color: '#4F5665', textAlign: { xs: 'center', sm: 'start' } }}>Customers</Typography>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Box >
   )
 }
 
@@ -313,7 +313,7 @@ const Products = () => {
 
           {
             products.map((item) => (
-              <Box key={item.name} className="product" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: '50px', width: '330px', border: '2px solid #DDDDDD', borderRadius: '10px', }}>
+              <Box key={item.name} className="product" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: '50px', width: { xs: '100%', sm: '330px' }, border: '2px solid #DDDDDD', borderRadius: '10px', }}>
 
                 <Box className="image-wrapper" sx={{ position: 'relative', width: '129px', height: '129px', marginBottom: '20px', marginTop: '-65px' }}>
                   <Image

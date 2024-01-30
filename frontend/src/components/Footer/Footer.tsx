@@ -12,7 +12,7 @@ import FazzCoffeIcon from '@/app/icon.png'
 
 const Footer = () => {
   return (
-    <Box sx={{ paddingTop: { xs: '5rem', lg: '176px' }, paddingBottom: { xs: '5rem', lg: '96px' }, paddingInline: { xs: '2.5rem', lg: '150px' }, bgcolor: '#F8F8F8', display: 'flex', gap: { xs: '5rem', lg: '0' }, flexDirection: { xs: 'column-reverse', lg: 'row' }, justifyContent: 'space-between' }}>
+    <Box sx={{ paddingTop: { xs: '5rem', lg: '176px' }, paddingBottom: { xs: '5rem', lg: '96px' }, paddingInline: { xs: '1.5rem', sm: '2.5rem', lg: '150px' }, bgcolor: '#F8F8F8', display: 'flex', gap: { xs: '5rem', lg: '0' }, flexDirection: { xs: 'column-reverse', lg: 'row' }, justifyContent: 'space-between' }}>
       {/* Description */}
       <Box>
         {/* Brand */}
@@ -59,7 +59,9 @@ const Footer = () => {
       </Box>
 
       {/* Menus */}
-      <Box sx={{ display: 'flex', gap: '8rem' }}>
+      <Box sx={{ display: 'flex', gap: { xs: '3rem', sm: '8rem' } }}>
+
+        {/* Products */}
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           <Typography component='p' sx={{ fontFamily: rubik.style.fontFamily, fontWeight: '500', fontSize: '18px', color: '#0B132A', marginBottom: '10px' }}>
             Product
@@ -90,6 +92,8 @@ const Footer = () => {
             </Typography>
           </Link>
         </Box>
+
+        {/* Engage */}
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           <Typography component='p' sx={{ fontFamily: rubik.style.fontFamily, fontWeight: '500', fontSize: '18px', color: '#0B132A', marginBottom: '10px' }}>
             Engage

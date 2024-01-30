@@ -137,7 +137,7 @@ interface ITestimoni {
 const Testimoni = (props: ITestimoni) => {
   return (
     <Box className="testimoni" sx={{ border: '2px solid #DDDDDD', borderRadius: '10px', padding: '30px', minWidth: { xs: '100%', sm: '50%', md: '40%', lg: '400px' }, maxWidth: { md: '400px' }, display: 'flex', flexDirection: 'column', rowGap: '20px' }}>
-      <Box className="user" sx={{ display: 'flex', columnGap: '20px' }}>
+      <Box className="user" sx={{ display: 'flex', gap: '20px', flexDirection: { xs: 'column', md: 'row' } }}>
         <Box className="user-pict-profile" sx={{ position: 'relative', width: '50px', height: '50px' }}>
           <Image alt="user-pict" src={Milkshake1} fill style={{ objectFit: 'cover', borderRadius: '100%' }} />
         </Box>
