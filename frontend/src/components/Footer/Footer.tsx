@@ -55,14 +55,14 @@ const Footer = () => {
         {/* Copyright */}
         <Typography component='p' sx={{ fontFamily: rubik.style.fontFamily, color: '#AFB5C0', marginTop: '2rem' }}>
           ©{new Date().getFullYear()} Fazz Coffee
-        </Typography>
-      </Box>
+        </Typography >
+      </Box >
 
       {/* Menus */}
-      <Box sx={{ display: 'flex', gap: { xs: '3rem', sm: '8rem' } }}>
+      < Box sx={{ display: 'flex', gap: { xs: '3rem', sm: '8rem' } }}>
 
         {/* Products */}
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        < Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           <Typography component='p' sx={{ fontFamily: rubik.style.fontFamily, fontWeight: '500', fontSize: '18px', color: '#0B132A', marginBottom: '10px' }}>
             Product
           </Typography>
@@ -91,10 +91,10 @@ const Footer = () => {
               Blog
             </Typography>
           </Link>
-        </Box>
+        </Box >
 
         {/* Engage */}
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        < Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           <Typography component='p' sx={{ fontFamily: rubik.style.fontFamily, fontWeight: '500', fontSize: '18px', color: '#0B132A', marginBottom: '10px' }}>
             Engage
           </Typography>
@@ -123,8 +123,8 @@ const Footer = () => {
               Terms of Service
             </Typography>
           </Link>
-        </Box>
-      </Box>
+        </Box >
+      </Box >
     </Box >
   )
 }
