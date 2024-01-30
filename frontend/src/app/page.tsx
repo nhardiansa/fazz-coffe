@@ -1,20 +1,15 @@
 import Image from "next/image";
-import { Avatar, Box, Container, InputAdornment, TextField, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import {
-  Search as SearchIcon,
-  QuestionAnswer as QuestionAnswerIcon,
   CheckCircle as CheckCircleIcon,
   Person as PersonIcon,
   LocationOn as LocationIcon,
   Favorite as HeartIcon,
 } from "@mui/icons-material";
 import { rubik } from '@/app/fonts'
-import Link from "next/link";
 import FazzButton from "@/components/Button/Button";
 
 
-import BrandIcon from '@/app/icon.png'
-import PeoplePlaceholder from '@/assets/images/people-placeholder.png'
 import HeroBanner from '@/assets/images/hero-banner.jpg'
 import TeamWorkDoodle from '@/assets/images/teamwork-doodle.png'
 import Milkshake1 from '@/assets/images/milkshake-1.jpg'
@@ -29,6 +24,7 @@ import discord from '@/assets/images/discord.png'
 import spotify from '@/assets/images/spotify.png'
 import Footer from "@/components/Footer/Footer";
 import CustomerTestimonies from "@/components/CustomerTestimonies/CustomerTestimonies";
+import Navbar from "@/components/Navbar/Navbar";
 
 const partners = [netflix, reddit, amazon, discord, spotify]
 
@@ -75,8 +71,7 @@ export default function Home() {
   return (
     <Box sx={{ fontFamily: rubik.style.fontFamily }}>
       {/* Navbar */}
-      {/* <Navbar /> */}
-
+      <Navbar />
 
       {/* Hero */}
       <Hero />
@@ -119,88 +114,9 @@ export default function Home() {
   );
 }
 
-const Navbar = () => {
-  return (
-    <Box component='nav' sx={{ width: '100%', backgroundColor: '#fff', position: 'fixed', zIndex: '100' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', maxWidth: '1200px', marginInline: 'auto', paddingBlock: '29px' }}>
-        {/* Brand */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-          <Box position='relative'>
-            <Image
-              alt="Fazz Coffee Icon"
-              src={BrandIcon}
-              width={30}
-              height={33}
-            />
-          </Box>
-
-          <Typography component='p' sx={{ fontFamily: rubik.style.fontFamily, fontWeight: '700', fontSize: '20px', color: '#0B132A' }}>
-            Fazz Coffee
-          </Typography>
-        </Box>
-
-        {/* Menus */}
-        <Box sx={{ display: 'flex', gap: '38px' }}>
-          <Link href='#'>
-            <Typography component='span' sx={{ fontFamily: rubik.style.fontFamily, color: '#4F5665', ':hover': { textDecorationLine: 'underline' } }}>
-              Home
-            </Typography>
-          </Link>
-          <Link href='#'>
-            <Typography component='span' sx={{ fontFamily: rubik.style.fontFamily, color: '#4F5665', ':hover': { textDecorationLine: 'underline' } }}>
-              Product
-            </Typography>
-          </Link>
-          <Link href='#'>
-            <Typography component='span' sx={{ fontFamily: rubik.style.fontFamily, color: '#4F5665', ':hover': { textDecorationLine: 'underline' } }}>
-              Your Cart
-            </Typography>
-          </Link>
-          <Link href='#'>
-            <Typography component='span' sx={{ fontFamily: rubik.style.fontFamily, color: '#4F5665', ':hover': { textDecorationLine: 'underline' } }}>
-              History
-            </Typography>
-          </Link>
-        </Box>
-
-        {/* Others */}
-        <Box sx={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-          <TextField
-            id="search-product-textfield"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start" sx={{ marginBottom: '-3px', marginLeft: '-0.2rem' }}>
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-            // variant="filled"
-            placeholder="Search"
-            sx={{ '.MuiInputBase-input': { paddingBlock: '8px', paddingLeft: '0' }, '.MuiInputBase-root': { borderRadius: '30px' }, maxWidth: '178px', backgroundColor: '#EFEEEE', borderRadius: '30px' }}
-            inputProps={{ sx: { fontFamily: rubik.style.fontFamily } }}
-          />
-
-          {/* Chat */}
-          <Box>
-            <QuestionAnswerIcon sx={{ color: '#4F5665', cursor: 'pointer' }} />
-          </Box>
-
-          {/* Profile */}
-          <Avatar alt="Remy Sharp" src={PeoplePlaceholder.src} sx={{ cursor: 'pointer' }} />
-
-          {/* Login Button */}
-          {/* <FazzButton style={{ paddingBlock: '9px', margin: '0', maxWidth: '150px' }}>
-            Sign In
-          </FazzButton> */}
-        </Box>
-      </Box>
-    </Box>
-  )
-}
-
 const Hero = () => {
   return (
-    <Box position='relative' sx={{ paddingTop: '98px' }}>
+    <Box position='relative' sx={{ paddingTop: '80px' }}>
       <Box sx={{ position: 'relative', width: '100%', height: { xs: '89vh', lg: '85vh' }, backgroundColor: 'black', filter: { sm: 'brightness(60%)', xs: 'brightness(45%)' } }} >
         <Image src={HeroBanner} alt="Hero Banner" fill style={{ objectFit: 'cover' }} />
       </Box>
