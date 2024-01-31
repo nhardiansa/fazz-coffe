@@ -6,8 +6,8 @@ import {
   LocationOn as LocationIcon,
   Favorite as HeartIcon,
 } from "@mui/icons-material";
-import { rubik } from '@/app/fonts'
-import FazzButton from "@/components/Button/Button";
+import { rubik } from '@/core/utils/fonts'
+import FazzButton from "@/core/components/Button/Button";
 
 
 import HeroBanner from '@/assets/images/hero-banner.jpg'
@@ -22,9 +22,9 @@ import reddit from '@/assets/images/reddit.png'
 import amazon from '@/assets/images/amazon.png'
 import discord from '@/assets/images/discord.png'
 import spotify from '@/assets/images/spotify.png'
-import Footer from "@/components/Footer/Footer";
-import CustomerTestimonies from "@/components/CustomerTestimonies/CustomerTestimonies";
-import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/core/components/Footer/Footer";
+import CustomerTestimonies from "@/core/components/CustomerTestimonies/CustomerTestimonies";
+import Navbar from "@/core/components/Navbar/Navbar";
 
 const partners = [netflix, reddit, amazon, discord, spotify]
 

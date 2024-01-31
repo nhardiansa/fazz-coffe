@@ -1,7 +1,7 @@
 'use client'
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { rubik } from "./fonts";
+import { rubik } from "../core/utils/fonts";
 
 const theme = createTheme({
   typography: {
