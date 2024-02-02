@@ -1,7 +1,8 @@
 'use client'
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { rubik } from "../core/utils/fonts";
+import { rubik } from "../utils/fonts";
+import ReduxWrapper from "@/core/services/redux/ReduxWrapper";
 
 const theme = createTheme({
   typography: {
@@ -25,7 +26,9 @@ const theme = createTheme({
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider theme={theme}>
-      {children}
+      <ReduxWrapper>
+        {children}
+      </ReduxWrapper>
     </ThemeProvider>
   )
 }
