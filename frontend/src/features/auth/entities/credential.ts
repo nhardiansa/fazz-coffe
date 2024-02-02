@@ -3,25 +3,25 @@ export class Credential {
   password!: string;
 
   constructor(email: string, password: string) {
-    if (isEmptyOrNull(email) || isEmptyOrNull(password)) {
+    if (Credential.isEmptyOrNull(email) || Credential.isEmptyOrNull(password)) {
       throw new Error("You must fill email and password");
     }
 
-    if (isInvalidAddress(email)) {
+    if (Credential.isInvalidAddress(email)) {
       throw new Error("Invalid email address");
     }
 
     this.email = email;
     this.password = password;
   }
-}
 
-function isInvalidAddress(email: string) {
-  const validEmailRegex =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return !validEmailRegex.test(email);
-}
+  static isInvalidAddress(email: string) {
+    const validEmailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return !validEmailRegex.test(email);
+  }
 
-function isEmptyOrNull(word: string) {
-  return !word || word.trim().length === 0;
+  static isEmptyOrNull(word: string) {
+    return !word || word.trim().length === 0;
+  }
 }
