@@ -7,10 +7,9 @@ import Image from 'next/image'
 import SideImage from '@/assets/images/coffeshop-pict.jpg';
 import GoogleIcon from '@/assets/images/google-icon.png';
 import FazzCoffeIcon from '@/app/icon.png'
-import { rubik } from '@/core/utils/fonts';
-import Link from 'next/link';
+import { rubik } from '@/utils/fonts.ts';
 import Footer from '@/core/components/Footer/Footer';
-import LoginForm from '../components/LoginForm';
+import LoginWrapper from '../components/LoginWrapper';
 
 export const metadata: Metadata = {
   title: 'Login'
@@ -25,7 +24,7 @@ export default function LoginPage() {
         <SideImageBanner />
 
         {/* Form */}
-        <LoginForm />
+        <LoginWrapper />
 
         {/* Create Member Card */}
         <CreateMemberCard />
