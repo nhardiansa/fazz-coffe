@@ -1,3 +1,5 @@
+import validator from "validator";
+
 export class Credential {
   email!: string;
   password!: string;
@@ -16,9 +18,10 @@ export class Credential {
   }
 
   static isInvalidAddress(email: string) {
-    const validEmailRegex =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return !validEmailRegex.test(email);
+    if (!validator.isEmail(email)) {
+      return false;
+    }
+    return true;
   }
 
   static isEmptyOrNull(word: string) {
