@@ -1,12 +1,14 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Token } from "../../entities/token";
-import { RootState } from "../../frameworks/redux";
+import { RootState } from "../../../../core/services/redux/redux";
 import { Credential } from "../../entities/credential";
-import { LoginServiceImpl } from "../../services/loginServiceImpl";
-import { LoginInteractor } from "../../interactors/loginInteractor";
+import { AuthServiceImpl } from "../../services/loginServiceImpl";
+import { LoginUseCase } from "../../useCases/loginUseCase";
 
 interface StateType {
   token: Token;
+  isLoading: boolean;
+  error: string | null;
 }
 
 const initialState: StateType = {
@@ -14,19 +16,16 @@ const initialState: StateType = {
     access: "",
     refresh: "",
   },
+  error: null,
+  isLoading: false,
 };
 
-const login = createAsyncThunk<StateType, Credential>(
+export const login = createAsyncThunk(
   "token/login",
-  async (params, { rejectWithValue }) => {
-    try {
-      const service = new LoginServiceImpl();
-      const interactor = new LoginInteractor(service);
-      const result = await interactor.login(params);
-      return result;
-    } catch (error) {
-      return rejectWithValue(error?.response?.data);
-    }
+  async (params: Credential) => {
+    const service = new AuthServiceImpl();
+    const interactor = new LoginUseCase(service);
+    return await interactor.login(params);
   }
 );
 
@@ -44,10 +43,25 @@ export const tokenSlice = createSlice({
       };
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(login.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.token = action.payload;
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = "Login Failed";
+        console.error("FAILED LOGIN", action.error);
+      });
+  },
 });
 
 export const { tokenUpdate, tokenClear } = tokenSlice.actions;
 
 export const selectToken = (state: RootState) => state.token;
 
-export default tokenSlice.reducer;
+export const tokenReducer = tokenSlice.reducer;

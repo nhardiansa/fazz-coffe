@@ -1,8 +1,8 @@
 import { Credential } from "../entities/credential";
 import { Token } from "../entities/token";
-import { LoginService } from "../interactors/loginInteractor";
+import { LoginService } from "../useCases/loginUseCase";
 
-export class LoginServiceImpl implements LoginService {
+export class AuthServiceImpl implements LoginService {
   async loginWithCredential(params: Credential): Promise<Token> {
     return Promise.resolve({
       access: "asdasdads",
