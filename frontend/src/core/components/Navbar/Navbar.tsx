@@ -14,7 +14,7 @@ import {
 
 import BrandIcon from '@/app/icon.png'
 import PeoplePlaceholder from '@/assets/images/people-placeholder.png'
-import { rubik } from '@/core/utils/fonts'
+import { rubik } from '@/utils/fonts.ts'
 import FazzButton from '../Button/Button'
 
 const mainMenu = [

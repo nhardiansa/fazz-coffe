@@ -7,7 +7,7 @@ import Image from 'next/image'
 import SideImage from '@/assets/images/coffeshop-pict.jpg';
 import GoogleIcon from '@/assets/images/google-icon.png';
 import FazzCoffeIcon from '@/app/icon.png'
-import { rubik } from '@/core/utils/fonts';
+import { rubik } from '@/utils/fonts.ts';
 import Link from 'next/link';
 import Footer from '@/core/components/Footer/Footer';
 
@@ -88,6 +88,7 @@ const FormAuth = () => {
         {/* Header */}
         <Box sx={{ display: { xs: 'none', lg: 'flex' }, justifyContent: 'space-between' }}>
           {/* Brand */}
+          {/* <Link href='/'> */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
             <Box>
               <Image
@@ -99,26 +100,30 @@ const FormAuth = () => {
               Fazz Coffee
             </Typography>
           </Box>
+          {/* </Link> */}
 
           {/* button */}
-          <Button variant="contained" sx={{
-            color: '#6A4029',
-            fontWeight: 500,
-            bgcolor: '#FFBA33',
-            ':hover': {
-              bgcolor: '#edad3b',
-              boxShadow: '0px 2px 4px -1px rgba(255, 186, 51, 0.2), 0px 4px 5px 0px rgba(255, 186, 51, 0.14), 0px 1px 10px 0px rgba(255, 186, 51, 0.12)'
-            },
-            boxShadow: '0px 6px 20px rgba(255, 186, 51, 0.40)',
-            paddingBlock: '13px',
-            paddingInline: '45px',
-            borderRadius: '50px',
-            fontSize: '1rem',
-            fontFamily: rubik.style.fontFamily,
-            textTransform: 'capitalize'
-          }}>
-            Login
-          </Button>
+          <Link href='/login'>
+            <Button variant="contained" sx={{
+              color: '#6A4029',
+              fontWeight: 500,
+              bgcolor: '#FFBA33',
+              ':hover': {
+                bgcolor: '#edad3b',
+                boxShadow: '0px 2px 4px -1px rgba(255, 186, 51, 0.2), 0px 4px 5px 0px rgba(255, 186, 51, 0.14), 0px 1px 10px 0px rgba(255, 186, 51, 0.12)'
+              },
+              boxShadow: '0px 6px 20px rgba(255, 186, 51, 0.40)',
+              paddingBlock: '13px',
+              paddingInline: '45px',
+              borderRadius: '50px',
+              fontSize: '1rem',
+              fontFamily: rubik.style.fontFamily,
+              textTransform: 'capitalize'
+            }}>
+              Login
+            </Button>
+          </Link>
+
         </Box>
 
 

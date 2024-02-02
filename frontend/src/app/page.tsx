@@ -6,7 +6,7 @@ import {
   LocationOn as LocationIcon,
   Favorite as HeartIcon,
 } from "@mui/icons-material";
-import { rubik } from '@/core/utils/fonts'
+import { rubik } from '@/utils/fonts.ts'
 import FazzButton from "@/core/components/Button/Button";
 
 
