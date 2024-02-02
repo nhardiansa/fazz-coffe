@@ -1,7 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Token } from "../../entities/token";
+import { Token, Credential } from "../../entities";
 import { RootState } from "../../../../core/services/redux/redux";
-import { Credential } from "../../entities/credential";
 import { AuthServiceImpl } from "../../services/loginServiceImpl";
 import { LoginUseCase } from "../../useCases/loginUseCase";
 

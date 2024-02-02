@@ -1,5 +1,4 @@
-import { Credential } from "../entities/credential";
-import { Token } from "../entities/token";
+import { Credential, Token } from "../entities";
 import { LoginService } from "../useCases/loginUseCase";
 
 export class AuthServiceImpl implements LoginService {
