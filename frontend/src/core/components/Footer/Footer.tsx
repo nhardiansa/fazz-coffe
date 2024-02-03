@@ -1,4 +1,4 @@
-import { rubik } from '@/utils/fonts.ts'
+import { rubik } from '@/utils/fonts'
 import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'

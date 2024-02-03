@@ -1,7 +1,7 @@
 import { Button, SxProps, Theme, ButtonProps } from "@mui/material";
 import React from "react";
 
-import { rubik } from "@/utils/fonts.ts";
+import { rubik } from "@/utils/fonts";
 
 interface IButtonComponent {
   children?: React.ReactNode;
