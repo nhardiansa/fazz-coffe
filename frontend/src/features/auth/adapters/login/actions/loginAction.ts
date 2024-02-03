@@ -1,10 +1,10 @@
-import { AuthServiceImpl } from "@/features/auth/services/loginServiceImpl";
+import { AuthServiceImpl } from "@/features/auth/services/authServiceImpl";
 import { LoginState } from "..";
-import { LoginUseCase } from "@/features/auth/useCases/loginUseCase";
+import { AuthUseCase } from "@/features/auth/useCases/authUseCase";
 
 export const loginAction = async (get: () => LoginState) => {
   const service = new AuthServiceImpl();
-  const interactor = new LoginUseCase(service);
+  const interactor = new AuthUseCase(service);
   get().setLoading(true);
 
   try {

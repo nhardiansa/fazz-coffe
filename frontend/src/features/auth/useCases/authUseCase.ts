@@ -1,13 +1,13 @@
 import { Credential, Token } from "../entities";
 
-export interface LoginService {
+export interface AuthService {
   loginWithCredential: (credential: Credential) => Promise<Token>;
 }
 
-export class LoginUseCase {
-  loginService!: LoginService;
+export class AuthUseCase {
+  loginService!: AuthService;
 
-  constructor(loginService: LoginService) {
+  constructor(loginService: AuthService) {
     this.loginService = loginService;
   }
 
