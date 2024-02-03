@@ -4,13 +4,8 @@ import { AuthService } from "../useCases/authUseCase";
 
 class AuthHTTP extends Http {
   async login(credential: Credential) {
-    // return await this.post("auth/login", { ...credential });
     return await this.get("todos/1", { ...credential });
   }
-  // async register(credential: Credential) {
-  //   // return await this.post("auth/register", { ...credential });
-  //   return await this.get("todos/1", { ...credential });
-  // }
 }
 
 export class AuthServiceImpl implements AuthService {

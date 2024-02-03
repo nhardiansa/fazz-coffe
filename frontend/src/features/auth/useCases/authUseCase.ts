@@ -2,16 +2,17 @@ import { Credential, Token } from "../entities";
 
 export interface AuthService {
   loginWithCredential: (credential: Credential) => Promise<Token>;
+  // register: () => Promise<string>
 }
 
 export class AuthUseCase {
-  loginService!: AuthService;
+  authService!: AuthService;
 
-  constructor(loginService: AuthService) {
-    this.loginService = loginService;
+  constructor(authService: AuthService) {
+    this.authService = authService;
   }
 
   async login(params: Credential): Promise<Token> {
-    return this.loginService.loginWithCredential(params);
+    return this.authService.loginWithCredential(params);
   }
 }
