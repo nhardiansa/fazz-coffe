@@ -1,38 +1,61 @@
-import axios, {
-  AxiosInstance,
-  AxiosResponse,
-  AxiosError,
-  InternalAxiosRequestConfig,
-} from "axios";
+import axios, { AxiosInstance, AxiosHeaders } from "axios";
 
-// Membuat instance Axios
-const api: AxiosInstance = axios.create({
-  baseURL: "https://example.com/api", // Ganti dengan base URL API Anda
-  timeout: 5000, // Timeout dalam milidetik
-});
+class Http {
+  private axiosInstance: AxiosInstance;
 
-// Interceptor untuk menangani request sebelum dikirim
-api.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
-    // Melakukan modifikasi pada config jika diperlukan (tambahan header, dll.)
-    return config;
-  },
-  (error) => {
-    // Menangani kesalahan pada request
-    return Promise.reject(error);
+  constructor() {
+    this.axiosInstance = axios.create({
+      baseURL: process.env.NEXT_PUBLIC_API_URL,
+    });
   }
-);
 
-// Interceptor untuk menangani response setelah diterima
-api.interceptors.response.use(
-  (response: AxiosResponse) => {
-    // Menangani response yang berhasil
-    return response;
-  },
-  (error: AxiosError) => {
-    // Menangani kesalahan pada response
-    return Promise.reject(error);
+  includeFomData(headers?: AxiosHeaders, isMultiPart = false) {
+    return {
+      ...headers,
+      ...(isMultiPart ? { "Content-Type": "multipart/form-data" } : null),
+    };
   }
-);
 
-export default api;
+  async get(url: string, params?: object, headers?: AxiosHeaders) {
+    return await this.axiosInstance.get(url, { headers, params });
+  }
+
+  async post(
+    url: string,
+    body: object | FormData,
+    headers?: AxiosHeaders,
+    isMultiPart = false
+  ) {
+    return await this.axiosInstance.post(url, body, {
+      headers: this.includeFomData(headers, isMultiPart),
+    });
+  }
+
+  async put(
+    url: string,
+    body: object | FormData,
+    headers?: AxiosHeaders,
+    isMultiPart = false
+  ) {
+    return await this.axiosInstance.put(url, body, {
+      headers: this.includeFomData(headers, isMultiPart),
+    });
+  }
+
+  async patch(
+    url: string,
+    body: object | FormData,
+    headers?: AxiosHeaders,
+    isMultiPart = false
+  ) {
+    return await this.axiosInstance.patch(url, body, {
+      headers: this.includeFomData(headers, isMultiPart),
+    });
+  }
+
+  async delete(url: string, headers?: AxiosHeaders) {
+    return await this.axiosInstance.delete(url, { headers });
+  }
+}
+
+export default Http;
