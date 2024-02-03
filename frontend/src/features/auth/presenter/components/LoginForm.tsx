@@ -4,7 +4,7 @@ import Link from "next/link"
 
 import FazzCoffeIcon from '@/app/icon.png'
 import GoogleIcon from '@/assets/images/google-icon.png';
-import { rubik } from "@/utils/fonts.ts"
+import { rubik } from "@/utils/fonts"
 import { ChangeEvent, FormEvent } from "react";
 
 export interface PropsFormLogin {
@@ -80,7 +80,7 @@ const FormLogin = (props: PropsFormLogin) => {
               <InputLabel htmlFor='password' sx={{ color: '#4F5665', fontFamily: rubik.style.fontFamily, fontWeight: '700', fontSize: '1rem' }}>
                 Password:
               </InputLabel>
-              <TextField value={props.password} onChange={props.onPasswordChange} id='password' name='password' placeholder='Enter your password' fullWidth variant='outlined' sx={{ '.MuiInputBase-input': { paddingBlock: '23.04px', paddingLeft: '27.65px', borderColor: '#4F5665' } }} InputProps={{ sx: { fontFamily: rubik.style.fontFamily, borderRadius: '20px', } }} />
+              <TextField value={props.password} onChange={props.onPasswordChange} id='password' type="password" name='password' placeholder='Enter your password' fullWidth variant='outlined' sx={{ '.MuiInputBase-input': { paddingBlock: '23.04px', paddingLeft: '27.65px', borderColor: '#4F5665' } }} InputProps={{ sx: { fontFamily: rubik.style.fontFamily, borderRadius: '20px', } }} />
             </Box>
 
             <Box sx={{ marginTop: '1.12rem' }}>
