@@ -1,6 +1,8 @@
-export interface BaseResponse<T, E> {
+export interface BaseResponse {
   success: boolean;
   message: string;
-  result?: T;
+}
+
+export interface ErrorResponse<E> extends BaseResponse {
   error?: E;
 }
