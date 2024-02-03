@@ -7,7 +7,7 @@ import Image from 'next/image'
 import SideImage from '@/assets/images/coffeshop-pict.jpg';
 import GoogleIcon from '@/assets/images/google-icon.png';
 import FazzCoffeIcon from '@/app/icon.png'
-import { rubik } from '@/utils/fonts.ts';
+import { rubik } from '@/utils/fonts';
 import Footer from '@/core/components/Footer/Footer';
 import LoginWrapper from '../components/LoginWrapper';
 
